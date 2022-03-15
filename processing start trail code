@@ -1,0 +1,31 @@
+int[] xP = new int[50];
+int[] yP = new int[50];
+
+void setup() {
+  size(500,500);
+  frameRate(60);
+  smooth();
+  for (int i = 0; i < xP.length; i ++ ) {
+    xP[i] = 0;
+    yP[i] = 0;
+  }
+}
+
+void draw() {
+  background(0);
+  for (int i = 0; i < xP.length-1; i ++ ) {
+    xP[i] = xP[i+1];
+    yP[i] = yP[i+1];
+  }
+
+  xP[xP.length-1] = mouseX;
+  yP[yP.length-1] = mouseY;
+ 
+  for (int i = 0; i < xP.length; i ++ ) {
+    strokeWeight(5);
+    stroke(#39FF14);
+    fill(0);
+    ellipse(xP[i],yP[i],i,i);
+   
+  }
+}
